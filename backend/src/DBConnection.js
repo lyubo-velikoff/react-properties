@@ -13,15 +13,13 @@ class DBConnection {
         })
         this.start()
     }
-
     query(query) {
         return new Promise((resolve, reject) => {
             conn.query(query, (err, rows, fields) => {
                 if (err) {
                     reject(err)
                     throw err
-                }   
-                console.log('Rows: ', rows)
+                }
                 resolve(rows)
             })
         })
