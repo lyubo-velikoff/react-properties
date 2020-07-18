@@ -5,14 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "name": "Launch Backend",
+            "program": "${workspaceFolder}\\backend\\app.js",
+            "envFile": "${workspaceFolder}\\backend\\.env",
             "request": "launch",
-            "name": "Launch Program",
+            "restart": true,
+            "runtimeExecutable": "nodemon",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\backend\\app.js",
-            "envFile": "${workspaceFolder}\\backend\\.env"
-        }
+            "type": "pwa-node"
+        },
     ]
 }
