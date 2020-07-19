@@ -6,32 +6,3 @@ content-type: application/json
 GET {{baseUrl}}/api/categories HTTP/1.1
 content-type: application/json
 
-### Photos ###
-GET {{baseUrl}}/api/photos HTTP/1.1
-content-type: application/json
-
-### Photos by ID ###
-GET {{baseUrl}}/api/photos/2 HTTP/1.1
-content-type: application/json
-
-### Add Photo ###
-POST {{baseUrl}}/api/photos HTTP/1.1
-content-type: application/json
-
-{
-    "url": "https://www.monsterinsights.com/wp-content/uploads/2017/06/how-to-add-a-property-in-ga.jpg",
-    "property_id": 1
-}
-
-### Update Photo ###
-PUT {{baseUrl}}/api/photos/3 HTTP/1.1
-content-type: application/json
-
-{
-    "url": "https://www.monsterinsights.com/wp-content/uploads/2017/06/how-to-add-a-property-in-ga.jpg",
-    "property_id": 1
-}
-
-### Delete Photo ###
-DELETE {{baseUrl}}/api/photos/5 HTTP/1.1
-content-type: application/json

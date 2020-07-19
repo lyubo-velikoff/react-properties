@@ -1,10 +1,13 @@
 const express = require('express')
 const bodyParser = require("body-parser");
 const IndexRouter = require('./routes/index')
+const cors = require('cors')
 const DBConnection = require('./src/DBConnection')
 const app = express()
 const PORT = 3001
 conn = new DBConnection()
+
+app.use(cors())
 
 // parse requests of content-type: application/json
 app.use(bodyParser.json());
