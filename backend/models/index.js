@@ -86,3 +86,10 @@ module.exports = {
   Property,
   Region
 }
+
+// maybe a better way to import 
+// let normalizedPath = require('path').join(__dirname, "models")
+//     require('fs').readdirSync(normalizedPath).forEach((file) => {
+//         sequelize.import('./models/' + file)
+//     })
+//     let {User, Permissions} = sequelize.models
