@@ -9,10 +9,15 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express-validator": "^6.6.0",
+    "mariadb": "^2.4.1",
     "morgan": "^1.10.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "sequelize": "^6.3.3",
+    "sequelize-cli": "^6.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-register": "^6.26.0"
+  },
   "scripts": {
     "start:backend": "nodemon backend/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"

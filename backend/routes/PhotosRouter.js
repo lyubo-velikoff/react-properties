@@ -1,49 +1,41 @@
 const express = require('express')
-const { param } = require('express-validator')
+const { PhotoController } = require('../controlers')
+const { param, body } = require('express-validator')
 const validate = require('../utils/validation')
 const router = express.Router()
 
-//Get all photos
-router.get('/', (req, res) => {
-    conn.query('SELECT * from photos')
-        .then(data => res.json({ ...data }))
-        .catch(err => res.json({ result: 'error', description: err }))
-})
+// Create a photo
+router.post('/', validate([
+    body('url').exists().withMessage('url is required'),
+    body('url').isString().withMessage('url needs to be a string'),
+    body('propertyId').exists().withMessage('propertyId is required'),
+    body('propertyId').isInt().withMessage('propertyId needs to be an integer'),
+]), PhotoController.create);
+
+// Retrieve all Photos
+router.get('/', PhotoController.findAll);
 
 // Get photo by ID
 router.get('/:photoId', validate([
     param('photoId').exists().withMessage('Photo ID is required'),
     param('photoId').isInt().withMessage('Photo ID must be a number')
-]), async (req, res, next) => {
-    conn.query(`SELECT * from photos where id = ${req.params.photoId}`)
-        .then(data => res.json({ ...data }))
-        .catch(err => res.json({ result: 'error', description: err }))
-})
+]), PhotoController.findOne)
 
 //Update a photo
-router.put('/:photoId', (req, res) => {
-    const { photoId } = req.params
-    const { url, property_id } = req.body
-    conn.query(`update photos set url = "${url}", property_id = ${property_id} where id = ${photoId}`)
-        .then(data => res.json({ ...data }))
-        .catch(err => res.json({ result: 'error', description: err }))
-})
+router.put('/:photoId', validate([
+    param('photoId').exists().withMessage('Photo ID is required'),
+    param('photoId').isInt().withMessage('Photo ID must be a number'),
+    body('url').exists().withMessage('url is required'),
+    body('url').isString().withMessage('url needs to be a string'),
+    body('propertyId').exists().withMessage('propertyId is required'),
+    body('propertyId').isInt().withMessage('propertyId needs to be an integer')
+]), PhotoController.update)
 
 
 // Delete photo by ID
-router.delete('/:photoId', (req, res) => {
-    const { photoId } = req.params
-    conn.query(`delete from photos where id = ${photoId}`)
-        .then(data => res.json({ ...data }))
-        .catch(err => res.json({ result: 'error', description: err }))
-})
-
-// Add photo
-router.post('/', (req, res) => {
-    const { url, property_id } = req.body
-    conn.query(`insert into photos (url, property_id) values ("${url}", ${property_id})`)
-        .then(data => res.json({ ...data }))
-        .catch(err => res.json({ result: 'error', description: err }))
-})
+router.delete('/:photoId', validate([
+    param('photoId').exists().withMessage('Photo ID is required'),
+    param('photoId').isInt().withMessage('Photo ID must be a number'),
+]), PhotoController.delete)
 
 module.exports = router
