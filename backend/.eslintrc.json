@@ -13,8 +13,23 @@
         }
     },
     "rules": {
-        "semi": ["error", "never"],
-        "quotes": ["error", "single"],
-        "indent": ["error", 4]
+        "semi": [
+            "error",
+            "never"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "indent": [
+            "error",
+            4
+        ],
+        "no-trailing-spaces": [
+            4,
+            {
+                "skipBlankLines": true
+            }
+        ]
     }
 }
