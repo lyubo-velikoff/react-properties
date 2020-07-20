@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
 module.exports = (sequelize, DataTypes) => {
-  const Property = sequelize.define('property', {
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+    const Property = sequelize.define('property', {
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
     // description: {
     //   type: DataTypes.TEXT
     // },
@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
     // furnishedId: {
     //   type: DataTypes.INTEGER
     // }
-  }, { tableName: 'property' });
+    }, { tableName: 'property' })
 
-  return Property;
-};
+    return Property
+}

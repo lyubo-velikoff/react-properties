@@ -6,11 +6,8 @@ const NeighborhoodRouter = require('./NeighborhoodRouter')
 const router = express.Router()
 
 router.use('/properties', PropertyRouter)
-
 router.use('/categories', CategoryRouter)
-
 router.use('/photos', PhotosRouter)
-
 router.use('/neighborhoods', NeighborhoodRouter)
 
 module.exports = router

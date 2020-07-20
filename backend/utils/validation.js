@@ -1,4 +1,4 @@
-const { validationResult } = require('express-validator');
+const { validationResult } = require('express-validator')
 // can be reused by many routes
 
 const validate = validations => {

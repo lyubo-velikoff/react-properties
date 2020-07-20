@@ -1,12 +1,12 @@
-'use strict';
+'use strict'
 
 module.exports = (sequelize, DataTypes) => {
-  const County = sequelize.define('county', {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  }, { tableName: 'county' });
+    const County = sequelize.define('county', {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    }, { tableName: 'county' })
 
-  return County;
-};
+    return County
+}

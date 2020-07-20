@@ -1,12 +1,12 @@
-'use strict';
+'use strict'
 
 module.exports = (sequelize, DataTypes) => {
-  const Category = sequelize.define('category', {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  }, { tableName: 'category' });
+    const Category = sequelize.define('category', {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    }, { tableName: 'category' })
 
-  return Category;
-};
+    return Category
+}
