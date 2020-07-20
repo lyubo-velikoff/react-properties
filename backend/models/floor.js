@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = (sequelize, DataTypes) => {
   const Floor = sequelize.define('floor', {
@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     }
-  }, { tableName: 'floor' });
+  }, { tableName: 'floor' })
 
-  return Floor;
-};
+  return Floor
+}

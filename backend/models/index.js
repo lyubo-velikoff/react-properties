@@ -18,9 +18,9 @@ const RegionModel = require('./region.js')
 
 let sequelize
 if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config)
+    sequelize = new Sequelize(process.env[config.use_env_variable], config)
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config)
+    sequelize = new Sequelize(config.database, config.username, config.password, config)
 }
 
 const Category = CategoryModel(sequelize, Sequelize)
@@ -37,59 +37,52 @@ const Property = PropertyModel(sequelize, Sequelize)
 const Region = RegionModel(sequelize, Sequelize)
 
 Property.hasOne(Currency, {
-  foreignKey: 'currencyId'
+    foreignKey: 'currencyId'
 })
 
 Property.hasOne(County, {
-  foreignKey: 'countyId'
+    foreignKey: 'countyId'
 })
 
 Property.hasOne(Region, {
-  foreignKey: 'regionId'
+    foreignKey: 'regionId'
 })
 
 Property.hasOne(Floor, {
-  foreignKey: 'floorId'
+    foreignKey: 'floorId'
 })
 
 Property.hasOne(FloorCount, {
-  foreignKey: 'floorCountId'
+    foreignKey: 'floorCountId'
 })
 
 Property.hasOne(ConstructionType, {
-  foreignKey: 'constructionTypeId'
+    foreignKey: 'constructionTypeId'
 })
 
 Property.hasOne(Furnished, {
-  foreignKey: 'furnishedId'
+    foreignKey: 'furnishedId'
 })
 
 Property.hasMany(Photo, {
-  foreignKey: 'propertyId'
+    foreignKey: 'propertyId'
 })
 
 Photo.belongsTo(Property)
 
 module.exports = {
-  sequelize,
-  Sequelize,
-  Category,
-  ConstructionType,
-  Currency,
-  Detail,
-  DetailsPlot,
-  Floor,
-  FloorCount,
-  Furnished,
-  County,
-  Photo,
-  Property,
-  Region
+    sequelize,
+    Sequelize,
+    Category,
+    ConstructionType,
+    Currency,
+    Detail,
+    DetailsPlot,
+    Floor,
+    FloorCount,
+    Furnished,
+    County,
+    Photo,
+    Property,
+    Region
 }
-
-// maybe a better way to import 
-// let normalizedPath = require('path').join(__dirname, "models")
-//     require('fs').readdirSync(normalizedPath).forEach((file) => {
-//         sequelize.import('./models/' + file)
-//     })
-//     let {User, Permissions} = sequelize.models
