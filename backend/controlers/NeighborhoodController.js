@@ -1,4 +1,4 @@
-const db = require("../models")
+const db = require('../models')
 const { Photo, Property } = db
 const Op = db.Sequelize.Op
 
@@ -12,12 +12,12 @@ exports.findAll = (req, res) => {
     Photo.findAll({
         include: Property
     })
-      .then(data => res.send(data))
-      .catch(err => {
-          res.status(500).json({
-              message: err.message || "Some error occurred while retrieving data."
-          })
-      })
+        .then(data => res.send(data))
+        .catch(err => {
+            res.status(500).json({
+                message: err.message || 'Some error occurred while retrieving data.'
+            })
+        })
 }
 
 // Find a single Neighborhood with an id

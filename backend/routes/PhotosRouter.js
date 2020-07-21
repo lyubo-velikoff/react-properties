@@ -5,32 +5,27 @@ const validate = require('../utils/validation')
 const router = express.Router()
 
 router.post('/', validate([
-    body('url').exists().withMessage('url is required'),
-    body('url').isString().withMessage('url needs to be a string'),
-    body('propertyId').exists().withMessage('propertyId is required'),
-    body('propertyId').isInt().withMessage('propertyId needs to be an integer'),
+    body('url').exists().isString()
 ]), PhotoController.create)
+
+router.post('/assign', validate([
+    body('photoId').exists().isInt(),
+    body('propertyId').exists().isInt(),
+]), PhotoController.assign)
 
 router.get('/', PhotoController.findAll)
 
 router.get('/:photoId', validate([
-    param('photoId').exists().withMessage('Photo ID is required'),
-    param('photoId').isInt().withMessage('Photo ID must be a number')
+    param('photoId').exists().isInt()
 ]), PhotoController.findOne)
 
 router.put('/:photoId', validate([
-    param('photoId').exists().withMessage('Photo ID is required'),
-    param('photoId').isInt().withMessage('Photo ID must be a number'),
-    body('url').exists().withMessage('url is required'),
-    body('url').isString().withMessage('url needs to be a string'),
-    body('propertyId').exists().withMessage('propertyId is required'),
-    body('propertyId').isInt().withMessage('propertyId needs to be an integer')
+    param('photoId').exists().isInt(),
+    body('url').exists().isString()
 ]), PhotoController.update)
 
-
 router.delete('/:photoId', validate([
-    param('photoId').exists().withMessage('Photo ID is required'),
-    param('photoId').isInt().withMessage('Photo ID must be a number'),
+    param('photoId').exists().isInt()
 ]), PhotoController.delete)
 
 module.exports = router

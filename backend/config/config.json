@@ -5,7 +5,13 @@
         "database": "avalon",
         "host": "avalon.cvyaoeuf2naa.eu-west-2.rds.amazonaws.com",
         "dialect": "mariadb",
-        "define": { "charset": "utf8", "dialectOptions": { "collate": "utf8_general_ci" } }
+        "define": {
+            "charset": "utf8",
+            "freezeTableName": true,
+            "dialectOptions": {
+                "collate": "utf8_general_ci"
+            }
+        }
     },
     "test": {
         "username": "root",

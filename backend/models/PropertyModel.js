@@ -1,7 +1,24 @@
 'use strict'
-
+const {
+    Model
+} = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
-    const Property = sequelize.define('property', {
+    class Property extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+        static associate(models) {
+            // define association here
+            Property.belongsToMany(models.Photo, {
+                through: models.PropertyPhoto,
+                foreignKey: 'propertyId'
+            })
+            Property.hasMany(models.PropertyPhoto, { foreignKey: 'propertyId' })
+        }
+    };
+    Property.init({
         title: {
             type: DataTypes.STRING,
             allowNull: false
@@ -50,16 +67,10 @@ module.exports = (sequelize, DataTypes) => {
     // furnishedId: {
     //   type: DataTypes.INTEGER
     // }
-    }, { tableName: 'property' })
-
-    Property.associate = models => {
-        const { Photo, PropertyPhoto } = models
-        Property.belongsToMany(Photo, {
-            through: PropertyPhoto
-        })
-        Property.hasMany(PropertyPhoto)
-    }
-
+    }, {
+        sequelize,
+        modelName: 'Property',
+        tableName: 'property'
+    })
     return Property
-    
 }

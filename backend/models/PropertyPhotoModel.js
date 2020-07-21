@@ -1,7 +1,21 @@
 'use strict'
-
+const {
+    Model
+} = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
-    const PropertyPhoto = sequelize.define('propertyPhoto', {
+    class PropertyPhoto extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+        static associate(models) {
+            // define association here
+            // PropertyPhoto.belongsTo(models.Photo)
+            PropertyPhoto.belongsTo(models.Property)
+        }
+    };
+    PropertyPhoto.init({
         propertyId: {
             type: DataTypes.INTEGER,
             onDelete: 'CASCADE',
@@ -26,13 +40,11 @@ module.exports = (sequelize, DataTypes) => {
             },
             allowNull: false
         },
-    }, { tableName: 'propertyPhoto', timestamps: false })
-
-    PropertyPhoto.associate = models => {
-        const { PropertyPhoto, Property, Photo } = models
-        PropertyPhoto.belongsTo(Property)
-        PropertyPhoto.belongsTo(Photo)
-    }
-
+    }, {
+        sequelize,
+        modelName: 'PropertyPhoto',
+        tableName: 'propertyPhoto',
+        timestamps: false
+    })
     return PropertyPhoto
 }
