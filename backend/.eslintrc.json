@@ -4,7 +4,10 @@
         "es2020": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "eslint:recommended",
+        "prettier"
+    ],
     "parserOptions": {
         "ecmaVersion": 11,
         "sourceType": "module",
@@ -26,7 +29,7 @@
             4
         ],
         "no-trailing-spaces": [
-            4,
+            2,
             {
                 "skipBlankLines": true
             }

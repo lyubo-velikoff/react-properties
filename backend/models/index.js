@@ -2,7 +2,7 @@
 
 const Sequelize = require('sequelize')
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+const config = require(__dirname + '/../config/config.json')[env]
 const CategoryModel = require('./category.js')
 const ConstructionTypeModel = require('./construction-type.js')
 const CurrencyModel = require('./currency.js')
@@ -36,33 +36,33 @@ const Photo = PhotoModel(sequelize, Sequelize)
 const Property = PropertyModel(sequelize, Sequelize)
 const Region = RegionModel(sequelize, Sequelize)
 
-Property.hasOne(Currency, {
-    foreignKey: 'currencyId'
-})
+// Property.hasOne(Currency, {
+//     foreignKey: 'currencyId'
+// })
 
-Property.hasOne(County, {
-    foreignKey: 'countyId'
-})
+// Property.hasOne(County, {
+//     foreignKey: 'countyId'
+// })
 
-Property.hasOne(Region, {
-    foreignKey: 'regionId'
-})
+// Property.hasOne(Region, {
+//     foreignKey: 'regionId'
+// })
 
-Property.hasOne(Floor, {
-    foreignKey: 'floorId'
-})
+// Property.hasOne(Floor, {
+//     foreignKey: 'floorId'
+// })
 
-Property.hasOne(FloorCount, {
-    foreignKey: 'floorCountId'
-})
+// Property.hasOne(FloorCount, {
+//         foreignKey: 'floorCountId'
+// })
 
-Property.hasOne(ConstructionType, {
-    foreignKey: 'constructionTypeId'
-})
+// Property.hasOne(ConstructionType, {
+//     foreignKey: 'constructionTypeId'
+// })
 
-Property.hasOne(Furnished, {
-    foreignKey: 'furnishedId'
-})
+// Property.hasOne(Furnished, {
+//     foreignKey: 'furnishedId'
+// })
 
 Property.hasMany(Photo, {
     foreignKey: 'propertyId'

@@ -10,8 +10,8 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             title: {
-              type: Sequelize.STRING,
-              allowNull: false
+                type: Sequelize.STRING,
+                allowNull: false
             },
             createdAt: {
                 allowNull: false,
@@ -26,7 +26,7 @@ module.exports = {
             collate: 'utf8_unicode_ci'
         })
     },
-    down: async (queryInterface, Sequelize) => {
+    down: async (queryInterface) => {
         await queryInterface.dropTable('property')
     }
 }

@@ -1,27 +1,16 @@
 'use strict'
-
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('photo', {
+        await queryInterface.createTable('currency', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            url: {
+            sign: {
                 type: Sequelize.STRING,
-                allowNull: false
-            },
-            propertyId: {
-                type: Sequelize.INTEGER,
-                references: {
-                    model: {
-                        tableName: 'property',
-                        schema: 'avalon'
-                    },
-                    key: 'id'
-                },
+                unique: true,
                 allowNull: false
             },
             createdAt: {
@@ -38,6 +27,6 @@ module.exports = {
         })
     },
     down: async (queryInterface) => {
-        await queryInterface.dropTable('photo')
+        await queryInterface.dropTable('currency')
     }
 }

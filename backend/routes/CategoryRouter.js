@@ -3,7 +3,6 @@ const router = express.Router()
 
 // define the home page route
 router.get('/', (req, res) => {
-
 })
 
 module.exports = router

@@ -1,12 +1,12 @@
 'use strict'
 
 module.exports = (sequelize, DataTypes) => {
-    const DetailsPlot = sequelize.define('detailsPlot', {
+    const DetailsPlot = sequelize.define('detailPlot', {
         name: {
             type: DataTypes.STRING,
             allowNull: false
         }
-    }, { tableName: 'detailsPlot' })
+    }, { tableName: 'detailPlot' })
 
     return DetailsPlot
 }
