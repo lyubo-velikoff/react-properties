@@ -52,5 +52,14 @@ module.exports = (sequelize, DataTypes) => {
     // }
     }, { tableName: 'property' })
 
+    Property.associate = models => {
+        const { Photo, PropertyPhoto } = models
+        Property.belongsToMany(Photo, {
+            through: PropertyPhoto
+        })
+        Property.hasMany(PropertyPhoto)
+    }
+
     return Property
+    
 }

@@ -13,17 +13,6 @@ module.exports = {
                 type: Sequelize.STRING,
                 allowNull: false
             },
-            propertyId: {
-                type: Sequelize.INTEGER,
-                references: {
-                    model: {
-                        tableName: 'property',
-                        schema: 'avalon'
-                    },
-                    key: 'id'
-                },
-                allowNull: false
-            },
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE

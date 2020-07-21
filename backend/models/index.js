@@ -1,7 +1,7 @@
 'use strict'
 
 const Sequelize = require('sequelize')
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'development'
 const config = require(__dirname + '/../config/config.json')[env]
 const CategoryModel = require('./category.js')
 const ConstructionTypeModel = require('./construction-type.js')
@@ -15,6 +15,7 @@ const CountyModel = require('./county.js')
 const PhotoModel = require('./photo.js')
 const PropertyModel = require('./property.js')
 const RegionModel = require('./region.js')
+const PropertyPhotoModel = require('./property-photo.js')
 
 let sequelize
 if (config.use_env_variable) {
@@ -35,6 +36,7 @@ const County = CountyModel(sequelize, Sequelize)
 const Photo = PhotoModel(sequelize, Sequelize)
 const Property = PropertyModel(sequelize, Sequelize)
 const Region = RegionModel(sequelize, Sequelize)
+const PropertyPhoto = PropertyPhotoModel(sequelize, Sequelize)
 
 // Property.hasOne(Currency, {
 //     foreignKey: 'currencyId'
@@ -64,11 +66,12 @@ const Region = RegionModel(sequelize, Sequelize)
 //     foreignKey: 'furnishedId'
 // })
 
-Property.hasMany(Photo, {
-    foreignKey: 'propertyId'
-})
+// Property.hasMany(Photo, {
+//     foreignKey: 'propertyId',
+//     onDelete: 'cascade'
+// })
 
-Photo.belongsTo(Property)
+// Photo.belongsTo(Property)
 
 module.exports = {
     sequelize,
@@ -84,5 +87,6 @@ module.exports = {
     County,
     Photo,
     Property,
-    Region
+    Region,
+    PropertyPhoto
 }

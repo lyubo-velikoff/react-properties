@@ -6,11 +6,15 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        propertyId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        }
     }, { tableName: 'photo' })
+
+    Photo.associate = models => {
+        const { PropertyPhoto, Property } = models
+        Photo.belongsToMany(Property, {
+            through: PropertyPhoto
+        })
+        Photo.hasMany(PropertyPhoto)
+    }
 
     return Photo
 }
