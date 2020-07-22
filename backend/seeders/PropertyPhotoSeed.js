@@ -33,26 +33,31 @@ module.exports = {
         await queryInterface.bulkInsert('property', [
             {
                 title: '1- стаен, Център, 330лв',
+                price: 330,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
                 title: 'Парцел в кв. Долапите, 7,000€',
+                price: 7000,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
                 title: 'Парцел в кв. Долапите, 7,000€',
+                price: 7000,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
                 title: 'Търговски обект, Склад в с. Ряхово, 80,000€',
+                price: 80000,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },
             {
                 title: 'Промишлено помещение, ИПЗ, Дунав мост, 1,500,000€',
+                price: 1500000,
                 createdAt: new Date(),
                 updatedAt: new Date()
             },

@@ -23,50 +23,39 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-    // description: {
-    //   type: DataTypes.TEXT
-    // },
-    // price: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false
-    // },
-    // currencyId: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false
-    // },
-    // countyId: {
-    //   type: DataTypes.INTEGER
-    // },
-    // regionId: {
-    //   type: DataTypes.INTEGER
-    // },
-    // neighborhoodId: {
-    //   type: DataTypes.INTEGER
-    // },
-    // floorId: {
-    //   type: DataTypes.INTEGER
-    // },
-    // floorCountId: {
-    //   type: DataTypes.INTEGER
-    // },
-    // area: {
-    //   type: DataTypes.INTEGER
-    // },
-    // yard: {
-    //   type: DataTypes.INTEGER
-    // },
-    // constructionTypeId: {
-    //   type: DataTypes.INTEGER
-    // },
-    // regulation: {
-    //   type: DataTypes.INTEGER
-    // },
-    // phone: {
-    //   type: DataTypes.STRING
-    // },
-    // furnishedId: {
-    //   type: DataTypes.INTEGER
-    // }
+        description: {
+            type: DataTypes.TEXT
+        },
+        price: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        area: {
+            type: DataTypes.INTEGER
+        },
+        yard: {
+            type: DataTypes.INTEGER
+        },
+        regulation: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0
+        },
+        phone: {
+            type: DataTypes.STRING,
+            defaultValue: '0895 606 165'
+        },
+        currencyId: {
+            type: DataTypes.INTEGER,
+            onDelete: 'CASCADE',
+            references: {
+                model: {
+                    tableName: 'currency',
+                    schema: 'avalon'
+                },
+                key: 'id'
+            },
+            allowNull: true
+        },
     }, {
         sequelize,
         modelName: 'Property',
