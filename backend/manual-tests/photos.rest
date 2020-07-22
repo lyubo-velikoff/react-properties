@@ -3,7 +3,7 @@ GET {{baseUrl}}/api/photos?page=0&size=2 HTTP/1.1
 content-type: application/json
 
 ### Photos by ID ###
-GET {{baseUrl}}/api/photos/1 HTTP/1.1
+GET {{baseUrl}}/api/photos/3 HTTP/1.1
 content-type: application/json
 
 ### Add Photo ###
@@ -24,13 +24,13 @@ content-type: application/json
 }
 
 ### Update Photo ###
-PUT {{baseUrl}}/api/photos/1 HTTP/1.1
+PUT {{baseUrl}}/api/photos/3 HTTP/1.1
 content-type: application/json
 
 {
-    "url": "new text",
+    "url": "some text update"
 }
 
 ### Delete Photo ###
-DELETE {{baseUrl}}/api/photos/2 HTTP/1.1
+DELETE {{baseUrl}}/api/photos/3 HTTP/1.1
 content-type: application/json
