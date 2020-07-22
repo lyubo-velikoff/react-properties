@@ -2,7 +2,7 @@ const validate = require('../utils/validation')
 const { param, body } = require('express-validator')
 
 exports.create = validate([
-    body('url').exists().isString()
+    body('url').trim().exists().isString()
 ])
 
 exports.assign = validate([
@@ -16,7 +16,7 @@ exports.findOne = validate([
 
 exports.update = validate([
     param('photoId').exists().isInt(),
-    body('url').exists().isString()
+    body('url').trim().exists().isString()
 ])
 
 exports.delete = validate([
