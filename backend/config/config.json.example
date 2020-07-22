@@ -1,9 +1,9 @@
 {
     "development": {
-        "username": "admin",
-        "password": "3Sinjira",
-        "database": "avalon",
-        "host": "avalon.cvyaoeuf2naa.eu-west-2.rds.amazonaws.com",
+        "username": "",
+        "password": "",
+        "database": "",
+        "host": "",
         "dialect": "mariadb",
         "define": {
             "charset": "utf8",
