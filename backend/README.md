@@ -5,7 +5,9 @@
 npm install
 ```
 
-1. Copy .env.example into .env and fil in details
+1. Copy .env.example into .env and fill in details
+
+1. Copy config/config.json.example into config/config.json and fill in details
 
 1. Run commands
 ```
