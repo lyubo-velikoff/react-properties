@@ -1,8 +1,30 @@
-# Sequelize cli commands
+# How to run
+
+1. Install dependencies
+```
+npm install
+```
+
+1. Copy .env.example into .env and fil in details
+
+1. Run commands
+```
+node_modules\.bin\sequelize-cli db:migrate
+node_modules\.bin\sequelize-cli db:seed:all
+node app
+// if no errors your server is listening at 3001 (or depending what u configured in .env)
+```
+
+## Sequelize cli commands
 
 Run migration
 ```
 node_modules\.bin\sequelize-cli db:migrate
+```
+
+Run specific seed
+```
+node_modules\.bin\sequelize-cli db:seed --seed CurrencySeed.js
 ```
 
 ```
