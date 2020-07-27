@@ -36,10 +36,115 @@ module.exports = {
             },
             currencyId: {
                 type: Sequelize.INTEGER,
-                onDelete: 'CASCADE',
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
                 references: {
                     model: {
                         tableName: 'currency',
+                        schema: 'avalon'
+                    },
+                    key: 'id'
+                },
+                allowNull: true
+            },
+            countyId: {
+                type: Sequelize.INTEGER,
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+                references: {
+                    model: {
+                        tableName: 'county',
+                        schema: 'avalon'
+                    },
+                    key: 'id'
+                },
+                allowNull: true
+            },
+            regionId: {
+                type: Sequelize.INTEGER,
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+                references: {
+                    model: {
+                        tableName: 'region',
+                        schema: 'avalon'
+                    },
+                    key: 'id'
+                },
+                allowNull: true
+            },
+            neighborhoodId: {
+                type: Sequelize.INTEGER,
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+                references: {
+                    model: {
+                        tableName: 'neighborhood',
+                        schema: 'avalon'
+                    },
+                    key: 'id'
+                },
+                allowNull: true
+            },
+            floorId: {
+                type: Sequelize.INTEGER,
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+                references: {
+                    model: {
+                        tableName: 'floor',
+                        schema: 'avalon'
+                    },
+                    key: 'id'
+                },
+                allowNull: true
+            },
+            floorCountId: {
+                type: Sequelize.INTEGER,
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+                references: {
+                    model: {
+                        tableName: 'floorCount',
+                        schema: 'avalon'
+                    },
+                    key: 'id'
+                },
+                allowNull: true
+            },
+            constructionTypeId: {
+                type: Sequelize.INTEGER,
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+                references: {
+                    model: {
+                        tableName: 'constructionType',
+                        schema: 'avalon'
+                    },
+                    key: 'id'
+                },
+                allowNull: true
+            },
+            detailId: {
+                type: Sequelize.INTEGER,
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+                references: {
+                    model: {
+                        tableName: 'detail',
+                        schema: 'avalon'
+                    },
+                    key: 'id'
+                },
+                allowNull: true
+            },
+            detailPlotId: {
+                type: Sequelize.INTEGER,
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+                references: {
+                    model: {
+                        tableName: 'detailPlot',
                         schema: 'avalon'
                     },
                     key: 'id'

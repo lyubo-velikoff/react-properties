@@ -20,5 +20,6 @@ router.use('/properties', routes.PropertyRouter)
 router.use('/categories', routes.CategoryRouter)
 router.use('/photos', routes.PhotosRouter)
 router.use('/neighborhoods', routes.NeighborhoodRouter)
+router.use('/regions', routes.RegionRouter)
 
 module.exports = router

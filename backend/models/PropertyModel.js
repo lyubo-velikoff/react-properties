@@ -46,10 +46,115 @@ module.exports = (sequelize, DataTypes) => {
         },
         currencyId: {
             type: DataTypes.INTEGER,
-            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE',
+            onDelete: 'SET NULL',
             references: {
                 model: {
                     tableName: 'currency',
+                    schema: 'avalon'
+                },
+                key: 'id'
+            },
+            allowNull: true
+        },
+        countyId: {
+            type: DataTypes.INTEGER,
+            onUpdate: 'CASCADE',
+            onDelete: 'SET NULL',
+            references: {
+                model: {
+                    tableName: 'county',
+                    schema: 'avalon'
+                },
+                key: 'id'
+            },
+            allowNull: true
+        },
+        regionId: {
+            type: DataTypes.INTEGER,
+            onUpdate: 'CASCADE',
+            onDelete: 'SET NULL',
+            references: {
+                model: {
+                    tableName: 'region',
+                    schema: 'avalon'
+                },
+                key: 'id'
+            },
+            allowNull: true
+        },
+        neighborhoodId: {
+            type: DataTypes.INTEGER,
+            onUpdate: 'CASCADE',
+            onDelete: 'SET NULL',
+            references: {
+                model: {
+                    tableName: 'neighborhood',
+                    schema: 'avalon'
+                },
+                key: 'id'
+            },
+            allowNull: true
+        },
+        floorId: {
+            type: DataTypes.INTEGER,
+            onUpdate: 'CASCADE',
+            onDelete: 'SET NULL',
+            references: {
+                model: {
+                    tableName: 'floor',
+                    schema: 'avalon'
+                },
+                key: 'id'
+            },
+            allowNull: true
+        },
+        floorCountId: {
+            type: DataTypes.INTEGER,
+            onUpdate: 'CASCADE',
+            onDelete: 'SET NULL',
+            references: {
+                model: {
+                    tableName: 'floorCount',
+                    schema: 'avalon'
+                },
+                key: 'id'
+            },
+            allowNull: true
+        },
+        constructionTypeId: {
+            type: DataTypes.INTEGER,
+            onUpdate: 'CASCADE',
+            onDelete: 'SET NULL',
+            references: {
+                model: {
+                    tableName: 'constructionType',
+                    schema: 'avalon'
+                },
+                key: 'id'
+            },
+            allowNull: true
+        },
+        detailId: {
+            type: DataTypes.INTEGER,
+            onUpdate: 'CASCADE',
+            onDelete: 'SET NULL',
+            references: {
+                model: {
+                    tableName: 'detail',
+                    schema: 'avalon'
+                },
+                key: 'id'
+            },
+            allowNull: true
+        },
+        detailPlotId: {
+            type: DataTypes.INTEGER,
+            onUpdate: 'CASCADE',
+            onDelete: 'SET NULL',
+            references: {
+                model: {
+                    tableName: 'detailPlot',
                     schema: 'avalon'
                 },
                 key: 'id'

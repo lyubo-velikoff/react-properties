@@ -1,5 +1,5 @@
 const db = require('../models')
-const { Photo, Property } = db
+const { Neighborhood } = db
 const Op = db.Sequelize.Op
 
 // Create and Save a new Tutorial
@@ -9,9 +9,7 @@ exports.create = (req, res) => {
 
 // Retrieve all Neighborhood from the database.
 exports.findAll = (req, res) => {
-    Photo.findAll({
-        include: Property
-    })
+    Neighborhood.findAll()
         .then(data => res.send(data))
         .catch(err => {
             res.status(500).json({
