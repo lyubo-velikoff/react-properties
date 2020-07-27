@@ -23,5 +23,6 @@ router.use('/neighborhoods', routes.NeighborhoodRouter)
 router.use('/regions', routes.RegionRouter)
 router.use('/constructionTypes', routes.ConstructionTypeRouter)
 router.use('/counties', routes.CountyRouter)
+router.use('/currencies', routes.CurrencyRouter)
 
 module.exports = router
