@@ -21,5 +21,6 @@ router.use('/categories', routes.CategoryRouter)
 router.use('/photos', routes.PhotosRouter)
 router.use('/neighborhoods', routes.NeighborhoodRouter)
 router.use('/regions', routes.RegionRouter)
+router.use('/constructionTypes', routes.ConstructionTypeRouter)
 
 module.exports = router
