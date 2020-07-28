@@ -1,39 +1,53 @@
 const db = require('../models')
+const { getPagination, getPagingData } = require('../utils/pagination')
 const { Neighborhood } = db
 const Op = db.Sequelize.Op
 
-// Create and Save a new Tutorial
+const handleError = (err, res) => {
+    res.status(500).json({
+        message: err.message || 'Some error occurred'
+    })
+}
+
 exports.create = (req, res) => {
-
-}
-
-// Retrieve all Neighborhood from the database.
-exports.findAll = (req, res) => {
-    Neighborhood.findAll()
+    const { name } = req.body
+    Neighborhood.create({ name })
         .then(data => res.send(data))
-        .catch(err => {
-            res.status(500).json({
-                message: err.message || 'Some error occurred while retrieving data.'
-            })
-        })
+        .catch(err => handleError(err, res))
 }
 
-// Find a single Neighborhood with an id
+exports.findAll = (req, res) => {
+    const { page, size, title } = req.query
+    const { limit, offset } = getPagination(page, size)
+
+    Neighborhood.findAndCountAll({
+        limit,
+        offset,
+    })
+        .then(data => res.send(getPagingData(data)))
+        .catch(err => handleError(err, res))
+}
+
 exports.findOne = (req, res) => {
-
+    Neighborhood.findByPk(req.params.id)
+        .then(data => res.send(data))
+        .catch(err => handleError(err, res))
 }
 
-// Update a Neighborhood by the id in the request
 exports.update = (req, res) => {
-
+    const { name } = req.body
+    Neighborhood.update({ name }, { where : { id: req.params.id } })
+        .then(data => res.json({ result: data == 1 ? 'Success' : 'failed' }))
+        .catch(err => handleError(err, res))
 }
 
-// Delete a Neighborhood with the specified id in the request
 exports.delete = (req, res) => {
-
+    Neighborhood.destroy({ where : { id: req.params.id } })
+        .then(data => res.json({ result: data == 1 ? 'Success' : 'failed' }))
+        .catch(err => handleError(err, res))
 }
 
-// Delete all Neighborhood from the database.
+// Delete all Photo from the database.
 exports.deleteAll = (req, res) => {
 
 }
