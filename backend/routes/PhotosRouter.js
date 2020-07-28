@@ -1,5 +1,5 @@
 const express = require('express')
-const { PhotoController } = require('../controlers')
+const { PhotoController } = require('../controllers')
 const { PhotoValidation } = require('../validations')
 const router = express.Router()
 

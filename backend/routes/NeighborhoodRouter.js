@@ -1,5 +1,6 @@
 const express = require('express')
-const NeighborhoodController = require('../controlers/NeighborhoodController')
+const { NeighborhoodController } = require('../controllers')
+
 const router = express.Router()
 
 router.post('/', NeighborhoodController.create)

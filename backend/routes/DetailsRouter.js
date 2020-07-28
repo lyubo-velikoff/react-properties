@@ -1,5 +1,5 @@
 const express = require('express')
-const { DetailController } = require('../controlers')
+const { DetailController } = require('../controllers')
 const { DetailValidation } = require('../validations')
 const router = express.Router()
 

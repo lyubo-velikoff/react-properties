@@ -1,5 +1,5 @@
 const express = require('express')
-const { RegionController } = require('../controlers')
+const { RegionController } = require('../controllers')
 const { RegionValidation } = require('../validations')
 const router = express.Router()
 

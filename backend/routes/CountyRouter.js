@@ -1,5 +1,5 @@
 const express = require('express')
-const { CountyController } = require('../controlers')
+const { CountyController } = require('../controllers')
 const { CountyValidation } = require('../validations')
 const router = express.Router()
 

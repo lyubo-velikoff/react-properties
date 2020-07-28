@@ -1,5 +1,5 @@
 const express = require('express')
-const { CategoryController } = require('../controlers')
+const { CategoryController } = require('../controllers')
 const { CategoryValidation } = require('../validations')
 const router = express.Router()
 
