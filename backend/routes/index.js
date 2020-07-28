@@ -28,5 +28,6 @@ router.use('/details', routes.DetailsRouter)
 router.use('/detailsPlot', routes.DetailsPlotRouter)
 router.use('/floors', routes.FloorRouter)
 router.use('/floorsCount', routes.FloorCountRouter)
+router.use('/furnished', routes.FurnishedRouter)
 
 module.exports = router
