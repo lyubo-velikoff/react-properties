@@ -14,7 +14,7 @@ content-type: application/json
     "url": "https://vestnorden.com/wp-content/uploads/2018/03/house-placeholder.png"
 }
 
-### Assign Photo to Property ###
+### TODO: Move this inside property Assign Photo to Property ###
 POST {{baseUrl}}/api/photos/assign HTTP/1.1
 content-type: application/json
 
