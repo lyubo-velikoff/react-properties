@@ -26,6 +26,7 @@ router.use('/counties', routes.CountyRouter)
 router.use('/currencies', routes.CurrencyRouter)
 router.use('/details', routes.DetailsRouter)
 router.use('/detailsPlot', routes.DetailsPlotRouter)
-router.use('/floor', routes.FloorRouter)
+router.use('/floors', routes.FloorRouter)
+router.use('/floorsCount', routes.FloorCountRouter)
 
 module.exports = router
